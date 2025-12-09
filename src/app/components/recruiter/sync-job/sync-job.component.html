@@ -1,0 +1,44 @@
+<p>sync-job works!</p>
+
+<div class="sync-section bg-green-300 m-8 p-8">
+  <h3>Sincronización con Agente AI</h3>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="syncAllJobsToAgent()"
+    [disabled]="syncing">
+
+    <!-- <mat-icon *ngIf="!syncing">sync</mat-icon>
+    <mat-spinner *ngIf="syncing" diameter="20"></mat-spinner> -->
+
+    {{ syncing ? 'Sincronizando...' : 'Sincronizar TODOS TODOS los Jobs' }}
+  </button>
+
+
+  <button class="bg-blue-400 p-4 font-semibold"
+    mat-raised-button
+    color="primary"
+    (click)="syncOneJobToAgent()"
+    [disabled]="syncing">
+
+    <!-- <mat-icon *ngIf="!syncing">sync</mat-icon>
+    <mat-spinner *ngIf="syncing" diameter="20"></mat-spinner> -->
+
+    {{ syncing ? 'Sincronizando...' : 'Sincronizar ESTE JOB' }}
+  </button>
+
+
+  <button class="bg-blue-400 p-4 font-semibold"
+    mat-raised-button
+    color="primary"
+    (click)="syncDeleteOneJobToAgent()">
+
+    BORRAR Ca5dUqEuky5dGqQmyJJr
+
+  </button>
+
+  <p class="help-text">
+    Esto enviará TODOS los jobs al agente AI para análisis.
+  </p>
+</div>
