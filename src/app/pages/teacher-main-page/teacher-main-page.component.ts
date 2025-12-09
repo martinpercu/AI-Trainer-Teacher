@@ -2,9 +2,9 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ChatComponent } from '@teacher/chat/chat.component';
-import { LeftMenuComponent } from '@teacher/left-menu/left-menu.component';
-import { ModalhowitworksComponent } from '@teacher/modalhowitworks/modalhowitworks.component';
+import { ChatComponent } from '@components/chat/chat.component';
+import { LeftMenuComponent } from '@components/left-menu/left-menu.component';
+import { ModalhowitworksComponent } from '@components/modalhowitworks/modalhowitworks.component';
 
 import { AuthService } from '@services/auth.service';
 import { VisualStatesService } from '@services/visual-states.service';

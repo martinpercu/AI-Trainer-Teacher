@@ -26,9 +26,6 @@ import { RecruiterService } from '@services/recruiter.service'
 import { MatIconModule } from '@angular/material/icon';
 import { StringTransformerService } from '@services/string-transformer.service';
 
-// AGENTs AI
-import { AgentSyncService } from '@services/agent-sync.service';
-
 
 
 @Component({
@@ -45,7 +42,6 @@ export class JobsCrudComponent {
 
   recruiterService = inject(RecruiterService);
   stringTransformerService = inject(StringTransformerService);
-  agentSyncService = inject(AgentSyncService);
 
   // --- Propiedades del Componente ---
   jobs$!: Observable<Job[]>;
@@ -263,24 +259,15 @@ export class JobsCrudComponent {
 
         if (this.editingJobId) {
           // Lógica de Actualización
-          // Lógica de Actualización
-          console.log(this.editingJobId);
-          const idForAgent = this.editingJobId
           if (this.newJob.ownerId !== this.recruiterId) {
             this.errorMessage = 'No tienes permisos para editar este trabajo.';
             return;
           }
           this.jobCrudService.updateJob(this.editingJobId, jobData).subscribe({
             next: () => {
-              // this.resetForm();
+              this.resetForm();
               // Reload page to show in recruiter dash OK
-              console.log('Job UPDATED')
-              // console.log('EEEEEEEEE');
-              console.log(idForAgent);
-              // alert(idForAgent);
-              this.updateInAgent(idForAgent)
-
-              // window.location.reload();
+              window.location.reload();
             },
             error: (err) => {
               console.error('Error al actualizar:', err);
@@ -289,7 +276,6 @@ export class JobsCrudComponent {
           });
         } else {
           // Lógica de Creación
-          // Lógica de Creación
           jobData.ownerId = this.recruiterId; // Asignar propietario
 
           const magicStampCompressed = this.stringTransformerService.nowInBase62();
@@ -297,21 +283,10 @@ export class JobsCrudComponent {
           jobData.magicId = magicStampCompressed
 
           this.jobCrudService.createJob(jobData as Job).subscribe({
-            next: (jobId: string | null) => {
+            next: () => {
               this.resetForm();
-              if (jobId) {
-                  // this.resetForm();
-
-
-                  // Pasa el ID o el objeto completo para acciones post-creación
-                  this.updateInAgent(jobId);
-
-
-                  // Evita el reload total si solo estás haciendo una sincronización interna
-                  // window.location.reload();
-              }
               // Reload page to show in recruiter dash OK
-              // window.location.reload();
+              window.location.reload();
             },
             error: (err) => {
                 console.error('Error al crear:', err);
@@ -334,16 +309,13 @@ export class JobsCrudComponent {
       this.errorMessage = 'No tienes permisos para eliminar este trabajo.';
       return;
     }
-    const jobIdToDelete = this.editingJobId;
     // NOTA: Reemplazar confirm por un modal custom en una app real
     if (confirm('¿Estás seguro de que quieres eliminar este trabajo?')) {
       this.jobCrudService.deleteJob(this.editingJobId).subscribe({
-        next: async () => {
-          this.deleteJobInAgent(jobIdToDelete)
-
+        next: () => {
           this.resetForm();
           // Reload page to show in recruiter dash OK
-          // window.location.reload();
+          window.location.reload();
         },
         error: (err) => {
             console.error('Error al eliminar:', err);
@@ -378,12 +350,6 @@ export class JobsCrudComponent {
     this.errorMessage = '';
   }
 
-  handleExpandForm() {
-    this.showExpandForm = !this.showExpandForm
-    if (this.showExpandForm == true) {
-      this.basicDetailView = true
-    }
-  }
 
   setDisplay(theJob: any){
     console.log(theJob);
@@ -414,6 +380,10 @@ export class JobsCrudComponent {
 
   handleShowSalary(){
     this.showSalary = !this.showSalary
+  }
+
+  handleExpandForm() {
+    this.showExpandForm = !this.showExpandForm
   }
 
   handlePayView(){
@@ -481,35 +451,6 @@ export class JobsCrudComponent {
     this.showExam = !this.showExam
   }
 
-  async updateInAgent(jobId: any) {
-    // Usamos 'await' para esperar que la Promise se resuelva y obtener el valor directo
-    console.log(this.recruiterService.currentRecruitersubcriptionLevel());
-    const subscriptionLevel = await this.recruiterService.currentRecruitersubcriptionLevel();
-    console.log(subscriptionLevel); // Esto imprimirá directamente '5' (o undefined)
-
-    if(subscriptionLevel && subscriptionLevel >= 5){
-      console.log('chabon con Subrscriot alta');
-      const theJob = await this.jobCrudService.getJobByIdRaw(jobId)
-      console.log(theJob);
-
-      const result = await this.agentSyncService.syncAllJobs([theJob]);
-      console.log(result);
-      }
-  }
-
-  async deleteJobInAgent(jobId: any) {
-    try {
-        // Usamos await porque deleteJobFromAgent devuelve una Promise (por .toPromise())
-        await this.agentSyncService.deleteJobFromAgent(jobId);
-        console.log('✅ Job eliminado del Agente AI exitosamente.');
-        // alert('✅ Job eliminado del Agente AI exitosamente.');
-
-    } catch (error) {
-        // Si el Agente AI no lo encuentra o falla por otra razón,
-        // registramos el error pero no bloqueamos el flujo, pues ya se eliminó de la fuente principal.
-        console.error('⚠️ Error al eliminar job en Agente AI:', error);
-    }
-  }
 
 }
 

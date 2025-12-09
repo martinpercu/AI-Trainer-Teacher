@@ -36,80 +36,8 @@ import { authGuard } from './../app/guards/auth.guard';
 import { LoginAndRegisterComponent } from '@recruiter/login-and-register/login-and-register.component';
 import { publicGuard } from './../app/guards/public.guard';
 
-import { LangSwitcherComponent } from '@shared/lang-switcher/lang-switcher.component';
-
-import { CandidatePageComponent } from '@pages/candidate-page/candidate-page.component';
-import { RecruiterPageComponent } from '@pages/recruiter-page/recruiter-page.component';
-import { JobsCrudComponent } from '@recruiter/jobs-crud/jobs-crud.component';
-import { RecruiterDashboardComponent } from '@recruiter/recruiter-dashboard/recruiter-dashboard.component';
-import { UploadComponent } from '@components/candidate/upload/upload.component';
-import { PdfShowComponent } from '@shared/pdf-show/pdf-show.component';
 
 export const routes: Routes = [
-  {
-    path:'resume/:pdfname',
-    component: PdfShowComponent
-  },
-  {
-    path:'upload',
-    component: UploadComponent
-  },
-  {
-    path:'job-crud',
-    component: JobsCrudComponent
-  },
-  {
-    path:'recruiter',
-    component: RecruiterDashboardComponent
-  },
-  {
-    path:'job',
-    component: CandidatePageComponent
-  },
-  {
-    path:'job/:jobId',
-    component: CandidatePageComponent
-  },
-  {
-    path:'lang',
-    component: LangSwitcherComponent
-  },
-  {
-    path:'crud',
-    component: TeachersCRUDComponent
-  },
-  {
-    path:'school-crud',
-    component: SchoolsCrudComponent
-  },
-  {
-    path:'course-crud',
-    component: CoursesCRUDComponent
-  },
-  {
-    path:'exam-crud',
-    component: ExamCrudComponent
-  },
-  {
-    path:'exam/:id',
-    component: ExamComponent
-  },
-  // {
-  //   path: 'exam/:id',
-  //   component: ExamComponent,
-  //   children: [
-  //     { path: 'question/:index', component: QuestionComponent },
-  //     { path: 'summary', component: SummaryComponent }
-  //   ]
-  // },
-  // {
-  //   path:'',
-  //   component: ExamComponent
-  // },
-  {
-    path:'main',
-    component: SchoolMainPageComponent
-  },
   {
     path:'',
     component: MainpageBridgetoworksComponent

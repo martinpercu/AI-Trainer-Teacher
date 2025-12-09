@@ -18,7 +18,7 @@ export interface Education {
 }
 
 export interface Resume {
-  resumeId?: string; // Is only to make work getResumesForJobsAndCandidates in resume.service
+  id?: string; // Is only to make work getResumesForJobsAndCandidates in resume.service
   candidateUID: string;
   jobRelated: string;
   recruiterId: string;
@@ -35,5 +35,4 @@ export interface Resume {
   works?: Works[]; // Texto de la pregunta
   certifications?: Certification[]; // Texto de la pregunta
   education?: Education[]; // Texto de la pregunta
-  useWithAgent?: boolean;
 }

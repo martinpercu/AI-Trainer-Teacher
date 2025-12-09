@@ -19,16 +19,16 @@ import { TeacherCrudService } from '@services/teacher-crud.service';
 import { ExamCrudService } from '@services/exam-crud.service';
 import { JobCrudService } from '@services/job-crud.service';
 
-// import { Course } from '@models/course';
-// import { Student } from '@models/student';
-// import { User } from '@models/user';
+import { Course } from '@models/course';
+import { Student } from '@models/student';
+import { User } from '@models/user';
 import { Result } from '@models/result';
 import { Exam } from '@models/exam';
 import { Job } from '@models/job';
-// import { Recruiter } from '@models/recruiter';
+import { Recruiter } from '@models/recruiter';
 import { Resume } from '@models/resume';
 
-// import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ExamResultListComponent } from '@school/exam-result-list/exam-result-list.component';
 // import { Teacher } from '@models/teacher';
 // import { TeacherListComponent } from '@school/teacher-list/teacher-list.component';
@@ -42,10 +42,8 @@ import { RecruiterAuthService } from '@services/recruiter-auth.service';
 import { CandidatesListComponent } from '@recruiter/candidates-list/candidates-list.component';
 import { JobsListComponent } from '@recruiter/jobs-list/jobs-list.component';
 
-// import { LoginAndRegisterComponent } from '@recruiter/login-and-register/login-and-register.component';
+import { LoginAndRegisterComponent } from '@recruiter/login-and-register/login-and-register.component';
 import { RecruiterAccountComponent } from '@recruiter/recruiter-account/recruiter-account.component';
-import { OwnResumesComponent } from '@recruiter/own-resumes/own-resumes.component';
-import { AgentChatComponent } from '@recruiter/agent-chat/agent-chat.component';
 
 import { Candidate } from '@models/candidate';
 import { CandidateService } from '@services/candidate.service';
@@ -59,7 +57,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 
 import { of, forkJoin, from } from 'rxjs'; // Import 'of'
 import { switchMap, tap, filter, catchError, map, take } from 'rxjs/operators';
-// import { LoadingBarComponent } from "@shared/loading-bar/loading-bar.component";
+import { LoadingBarComponent } from "@shared/loading-bar/loading-bar.component";
 // import { map } from 'rxjs/operators';
 
 @Component({
@@ -77,11 +75,9 @@ import { switchMap, tap, filter, catchError, map, take } from 'rxjs/operators';
     // TeacherListComponent,
     // ExamsListComponent,
     JobsListComponent,
-    // LoginAndRegisterComponent,
-    // LoadingBarComponent,
-    RecruiterAccountComponent,
-    OwnResumesComponent,
-    AgentChatComponent
+    LoginAndRegisterComponent,
+    LoadingBarComponent,
+    RecruiterAccountComponent
 ],
   templateUrl: './recruiter-dashboard.component.html',
 })
@@ -114,12 +110,7 @@ export class RecruiterDashboardComponent {
     | 'exams'
     | 'jobs'
     | 'jobs_edit'
-    | 'own_resumes'
-    | 'candidates'
-    | 'agent_chat'
-    | ''
-    // = 'jobs'; // Default to courses
-    = 'candidates'; // Default to courses
+    | 'candidates' = 'jobs'; // Default to courses
 
   showSettingMenu: boolean = false;
 
@@ -215,10 +206,10 @@ export class RecruiterDashboardComponent {
           this.jobs = jobs; // Asignamos los trabajos al componente
           // console.log('Jobs for recruiter:', this.jobs);
 
-          // if(this.jobs.length == 0){
-          //   this.setView('jobs_edit')
-          //   // this.allowedExamsShow = false
-          // }
+          if(this.jobs.length == 0){
+            this.setView('jobs_edit')
+            this.allowedExamsShow = false
+          }
 
           this.resumes = resumes;
           // console.log('Resumes for recruiter:', this.resumes);
@@ -243,17 +234,6 @@ export class RecruiterDashboardComponent {
 
           // Llama a la función para ordenar los trabajos una vez que los datos estén cargados
           this.orderJobsByCandidateCount();
-
-          if(this.jobs.length == 0){
-            this.setView('jobs_edit')
-          }
-          if(this.jobs.length >= 1){
-            this.setView('jobs')
-          }
-          if(this.jobs.length >= 1){
-            this.setView('agent_chat')
-          }
-
         },
         error: (error) => {
           console.error('Error in main subscription:', error);
@@ -262,7 +242,7 @@ export class RecruiterDashboardComponent {
           console.log('All data subscriptions completed.');
         },
       });
-      console.log('esto se ejecuta de toque arranca el NgOninit');
+      console.log(' a ver si se llega');
 
   }
 
@@ -278,8 +258,6 @@ export class RecruiterDashboardComponent {
       | 'jobs'
       | 'jobs_edit'
       | 'candidates'
-      | 'own_resumes'
-      | 'agent_chat'
   ) {
     this.currentView = view;
   }

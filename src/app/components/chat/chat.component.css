@@ -1,3 +1,9 @@
+.assistant-message {
+  background-color: transparent;
+  align-self: flex-start;
+  max-width: 80%;
+}
+
 .arrow-show {
   opacity: 0;
   transition: opacity 0.2s ease-in-out 0.2s; /* 1 segundo para la animación, con un retraso de 1 segundo */

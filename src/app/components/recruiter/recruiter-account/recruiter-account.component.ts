@@ -79,8 +79,6 @@ export class RecruiterAccountComponent {
       businessName: [this.recruiter.businessName, [Validators.minLength(2), Validators.maxLength(40)]],
       allowWhatsapp: [this.recruiter.allowWhatsapp],
       useExams: [this.recruiter.useExams],
-      useManager: [this.recruiter.useManager],
-      useAgentsAI: [this.recruiter.useAgentsAI],
       // state: [this.recruiter.state],
       // zipCode: [this.recruiter.zipCode, [Validators.minLength(5), Validators.maxLength(8)]],
       // // country: [this.candidate.country],
