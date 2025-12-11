@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Recruiter } from '@models/recruiter';
+// import { Recruiter } from '@models/recruiter';
 import { RecruiterAuthService } from '@services/recruiter-auth.service';
 import { Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
@@ -10,7 +10,7 @@ import { RecruiterSocialButtonsComponent } from '@auth/recruiter-social-buttons/
 
 @Component({
   selector: 'app-recruiter-register',
-  imports: [ReactiveFormsModule, TranslocoPipe, RecruiterSocialButtonsComponent],
+  imports: [ReactiveFormsModule, TranslocoPipe],
   templateUrl: './recruiter-register.component.html'
 })
 export class RecruiterRegisterComponent {
