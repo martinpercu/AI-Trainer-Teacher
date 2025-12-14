@@ -60,7 +60,7 @@ export class ExamCrudComponent implements OnInit {
       }
 
       if (!this.isAuthenticated) {
-        this.errorMessage = 'Debes iniciar sesión para acceder a los trabajos';
+        this.errorMessage = 'Should be logged to access to Exams CRUD';
         this.exams$ = of([]);
         return;
       }

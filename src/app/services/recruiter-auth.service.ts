@@ -9,7 +9,7 @@ import { Recruiter } from '@models/recruiter';
 import { RecruiterService } from '@services/recruiter.service';
 import { Router } from '@angular/router';
 
-import { CandidateService } from '@services/candidate.service'
+// import { CandidateService } from '@services/candidate.service'
 import { TranslocoService } from '@jsverse/transloco';
 
 
@@ -25,7 +25,7 @@ export class RecruiterAuthService {
   currentRecruiterSig = signal<Recruiter | null | undefined>(undefined);
   router = inject(Router);
 
-  candidateService = inject(CandidateService);
+  // candidateService = inject(CandidateService);
 
   recruiter!: Recruiter;
 
@@ -148,7 +148,7 @@ export class RecruiterAuthService {
       resumeInDB: false
     }
     console.log(recruiter);
-    this.candidateService.addUserWithId(recruiterCandidate, recruiter.recruiterUID)
+    // this.candidateService.addUserWithId(recruiterCandidate, recruiter.recruiterUID)
   }
 
   login(email: string, password: string): Observable<void> {
