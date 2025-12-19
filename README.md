@@ -112,6 +112,7 @@ System internally reformulates to: "Can you give an example of informed consent 
 - Real-time token-by-token response delivery via Server-Sent Events (SSE)
 - Async FastAPI backend with LangChain streaming chains
 - Better UX: Users see responses appear in real-time (ChatGPT-style)
+- Optional Text-to-Speech: Toggle to enable voice playback of AI responses for accessibility and audio-based learning
 
 #### 4. Session Persistence with Redis
 - Conversation history stored in **Redis** with `${userUID}_${teacherId}` session keys
