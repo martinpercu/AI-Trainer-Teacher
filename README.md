@@ -6,7 +6,8 @@ Production-ready online examination platform built with **Angular 19** and **Fir
 
 This repository demonstrates a modern educational assessment system with:
 - **Timed Exams**: Auto-save progress, resume capability, and intelligent question shuffling
-- **Multi-Role System**: Admin CRUD operations, recruiter exam management, student exam-taking
+- **AI-Powered Learning**: RAG-based chat system with context-aware responses and session persistence
+- **Multi-Role System**: Admin dashboard for content management, student interface for learning and assessment
 - **Real-time Persistence**: Firestore-backed automatic progress saving
 - **Content Management**: Teachers (modules), Courses, and Exams with full CRUD
 
@@ -14,9 +15,8 @@ This repository demonstrates a modern educational assessment system with:
 
 | Role | Capabilities | Routes |
 |------|-------------|---------|
-| **Admin** | Full CRUD on Teachers, Courses, Exams | `/crud`, `/course-crud`, `/exam-crud` |
-| **Recruiters** | Create and manage own exams | `/exam-crud` (filtered) |
-| **Students** | Take exams, view results, retry with cooldown | `/exam/:id` |
+| **Admin** | Full CRUD on Teachers, Courses, Exams + Dashboard access | `/crud`, `/course-crud`, `/exam-crud`, `/main` |
+| **Students** | View educational content, take exams, chat with AI teacher | `/teacher/:id`, `/exam/:id`, `/pdf-viewer` |
 
 ## 🎓 Key Features
 
