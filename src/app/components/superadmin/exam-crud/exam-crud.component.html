@@ -8,9 +8,9 @@
 
   <!-- Selección de examen existente -->
   <div class="mb-4">
-    <label class="block text-neutral-700 dark:text-gray-300 mb-2">{{ "exam_crud.select_exam" | transloco }}</label>
+    <label class="block text-gray-700 dark:text-gray-300 mb-2">{{ "exam_crud.select_exam" | transloco }}</label>
     <select
-      class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm bg-gray-50 dark:bg-neutral-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
+      class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
       [ngModel]="selectedExamId"
       (change)="loadExam($event)">
       <option value="">{{ "exam_crud.new_exam" | transloco }}</option>
@@ -19,26 +19,26 @@
   </div>
 
   <!-- Formulario de examen -->
-  <div class="bg-white dark:bg-neutral-800 p-2 sm:px-8 sm:pt-4 sm:pb-6 rounded-lg shadow-xl border dark:border-neutral-600">
+  <div class="bg-white dark:bg-gray-800 p-2 sm:px-8 sm:pt-4 sm:pb-6 rounded-lg shadow-xl border dark:border-0">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
       <!-- Título del examen -->
       <div>
-        <label class="block text-neutral-700 dark:text-gray-300 mb-2">{{ "exam_crud.exam_title" | transloco }} *</label>
+        <label class="block text-gray-700 dark:text-gray-300 mb-2">{{ "exam_crud.exam_title" | transloco }} *</label>
         <input
           type="text"
           [(ngModel)]="newExam.title"
-          class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm bg-gray-50 dark:bg-neutral-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
+          class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
           placeholder="{{ 'exam_crud.exam_title_placeholder' | transloco }}">
       </div>
 
 
     <!-- Select Teacher --><!-- Profesor --><!-- Select Teacher --><!-- Profesor -->
                         <!-- <div>
-                          <label class="block text-neutral-700 dark:text-gray-300 mb-2">Select Teacher *</label>
+                          <label class="block text-gray-700 dark:text-gray-300 mb-2">Select Teacher *</label>
                           <select
                             [(ngModel)]="newExam.teacherId"
                             (change)="updateTeacherName($event)"
-                            class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm bg-gray-50 dark:bg-neutral-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400">
+                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400">
                             <option value="">Without Teacher</option>
                             <option *ngFor="let teacher of teachers$ | async" [value]="teacher.id">{{ teacher.name }}</option>
                           </select>
@@ -49,32 +49,32 @@
 
       <!-- Percentage to pass -->
       <div>
-        <label class="block text-neutral-700 dark:text-gray-300 mb-2">{{ 'exam_crud.percentage_pass' | transloco }}</label>
+        <label class="block text-gray-700 dark:text-gray-300 mb-2">{{ 'exam_crud.percentage_pass' | transloco }}</label>
         <input
           type="number"
           [(ngModel)]="newExam.passingPercentage"
-          class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm bg-gray-50 dark:bg-neutral-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
+          class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
           min="0"
           max="100">
       </div>
 
       <!-- Tiempo de espera para reintentar -->
       <div>
-        <label class="block text-neutral-700 dark:text-gray-300 mb-2">{{ 'exam_crud.waitning_time' | transloco }}</label>
+        <label class="block text-gray-700 dark:text-gray-300 mb-2">{{ 'exam_crud.waitning_time' | transloco }}</label>
         <input
           type="number"
           [(ngModel)]="newExam.timeToWait"
-          class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm bg-gray-50 dark:bg-neutral-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
+          class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
           min="0">
       </div>
 
       <!-- Tiempo para hacer el examen -->
       <div>
-        <label class="block text-neutral-700 dark:text-gray-300 mb-2">{{ 'exam_crud.time_to_complete' | transloco }}</label>
+        <label class="block text-gray-700 dark:text-gray-300 mb-2">{{ 'exam_crud.time_to_complete' | transloco }}</label>
         <input
           type="number"
           [(ngModel)]="newExam.timeToDoTheExam"
-          class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm bg-gray-50 dark:bg-neutral-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
+          class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
           min="1">
       </div>
 
@@ -85,23 +85,23 @@
       <!-- enable ??  Always ENABLE == TRUE -->
 
       <!-- <div class="flex flex-row items-center">
-        <label class="block text-neutral-700 dark:text-gray-300">{{ 'exam_crud.exam_status' | transloco }}</label>
+        <label class="block text-gray-700 dark:text-gray-300">{{ 'exam_crud.exam_status' | transloco }}</label>
         <div class="flex items-center ml-4">
           <input
             type="checkbox"
             [(ngModel)]="newExam.enable"
-            class="w-5 h-5 text-blue-600 dark:text-blue-400 border-gray-300 dark:border-neutral-600 rounded focus:ring-blue-500 dark:focus:ring-blue-400">
-          <span class="ml-2 text-neutral-700 dark:text-gray-300">{{ 'exam_crud.enable' | transloco }}</span>
+            class="w-5 h-5 text-blue-600 dark:text-blue-400 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500 dark:focus:ring-blue-400">
+          <span class="ml-2 text-gray-700 dark:text-gray-300">{{ 'exam_crud.enable' | transloco }}</span>
         </div>
       </div> -->
 
       <!-- Tiempo para hacer el examen -->
       <!-- <div>
-        <label class="block text-neutral-700 dark:text-gray-300 mb-2">Time to complete the exam (minutes)</label>
+        <label class="block text-gray-700 dark:text-gray-300 mb-2">Time to complete the exam (minutes)</label>
         <input
           type="number"
           [(ngModel)]="newExam.timeToDoTheExam"
-          class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm bg-gray-50 dark:bg-neutral-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
+          class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
           min="1">
       </div> -->
     </div>
@@ -125,7 +125,7 @@
         {{ 'exam_crud.no_question_added' | transloco }}
       </div> -->
 
-      <div *ngFor="let question of newExam.questions; let i = index" class="border border-gray-300 dark:border-neutral-600 p-4 rounded-md mb-4 bg-gray-50 dark:bg-neutral-700">
+      <div *ngFor="let question of newExam.questions; let i = index" class="border border-gray-300 dark:border-gray-600 p-4 rounded-md mb-4 bg-gray-50 dark:bg-gray-700">
         <div class="flex justify-between items-start mb-3">
           <h3 class="font-medium text-gray-900 dark:text-gray-100">{{ 'exam_crud.question' | transloco }} {{ i + 1 }}</h3>
           <button
@@ -140,7 +140,7 @@
           <input
             type="text"
             [(ngModel)]="question.text"
-            class="w-full px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm bg-white dark:bg-neutral-600 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
             placeholder="Texto de la pregunta">
         </div>
 
@@ -166,7 +166,7 @@
           <input
             type="text"
             [(ngModel)]="option.text"
-            class="flex-grow px-3 py-2 border border-gray-300 dark:border-neutral-600 rounded-md shadow-sm bg-white dark:bg-neutral-600 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
+            class="flex-grow px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-400 dark:focus:border-green-400"
             placeholder="Texto de la opción">
           <button
             *ngIf="question.options.length > 2"
@@ -185,7 +185,7 @@
         <button
           type="button"
           (click)="resetForm()"
-          class="bg-gray-300 hover:bg-gray-400 dark:bg-neutral-600 dark:hover:bg-neutral-700 text-neutral-800 dark:text-gray-200 px-4 py-2 rounded-md mr-2">
+          class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-md mr-2">
           {{ 'exam_crud.clean' | transloco }}
         </button>
         <button
@@ -224,7 +224,7 @@
 
   <!-- Selección de examen existente -->
   <div class="mb-4">
-    <label class="block text-neutral-700 mb-2">Select Exam</label>
+    <label class="block text-gray-700 mb-2">Select Exam</label>
     <select
       class="w-full px-3 py-2 border rounded-md"
       [ngModel]="selectedExamId"
@@ -239,7 +239,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
       <!-- Título del examen -->
       <div>
-        <label class="block text-neutral-700 mb-2">Title *</label>
+        <label class="block text-gray-700 mb-2">Title *</label>
         <input
           type="text"
           [(ngModel)]="newExam.title"
@@ -249,7 +249,7 @@
 
       <!-- Profesor -->
       <div>
-        <label class="block text-neutral-700 mb-2">Select a Teacher *</label>
+        <label class="block text-gray-700 mb-2">Select a Teacher *</label>
         <select
           [(ngModel)]="newExam.teacherId"
           (change)="updateTeacherName($event)"
@@ -263,7 +263,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
       <!-- Percentage to pass -->
       <div>
-        <label class="block text-neutral-700 mb-2">Percentage to pass</label>
+        <label class="block text-gray-700 mb-2">Percentage to pass</label>
         <input
           type="number"
           [(ngModel)]="newExam.passingPercentage"
@@ -274,7 +274,7 @@
 
       <!-- Tiempo de espera para reintentar -->
       <div>
-        <label class="block text-neutral-700 mb-2">Waiting time (minutes)</label>
+        <label class="block text-gray-700 mb-2">Waiting time (minutes)</label>
         <input
           type="number"
           [(ngModel)]="newExam.timeToWait"
@@ -287,7 +287,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
       <!-- enable ?? -->
       <div>
-        <label class="block text-neutral-700 mb-2">Exam status</label>
+        <label class="block text-gray-700 mb-2">Exam status</label>
         <div class="flex items-center">
           <input
             type="checkbox"
@@ -299,7 +299,7 @@
 
       <!-- Tiempo para hacer el examen -->
       <div>
-        <label class="block text-neutral-700 mb-2">Time to complete the exam (minutes)</label>
+        <label class="block text-gray-700 mb-2">Time to complete the exam (minutes)</label>
         <input
           type="number"
           [(ngModel)]="newExam.timeToDoTheExam"
@@ -384,7 +384,7 @@
         <button
           type="button"
           (click)="resetForm()"
-          class="bg-gray-300 text-neutral-800 px-4 py-2 rounded-md hover:bg-gray-400 mr-2">
+          class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-400 mr-2">
           Clean
         </button>
         <button

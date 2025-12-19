@@ -110,8 +110,6 @@
   }
 
 
-
-
   <!-- Button to expand Candidates -->
   @if(candidatesForJob.length >= 1) {
   <div class="flex flex-col sm:flex-row gap-3 mt-2 font-light">
@@ -148,9 +146,9 @@
   @if(showCandidates && candidatesForJob.length >= 1){
     <div class="grid grid-cols-1 sm:grid-cols-2 mt-2">
       @for(candidate of candidatesWithScores; track candidate.candidateUID) {
-        <div class="sm:flex-row text-neutral-600 dark:text-neutral-300 py-2 px-1 border-b last:border-b-0 sm:border-0 border-neutral-200 dark:border-neutral-700">
+        <div class="sm:flex-row text-neutral-600 dark:text-neutral-400 py-2 px-1 border-b last:border-b-0 sm:border-0 border-neutral-200 dark:border-neutral-700">
           <div class="flex items-center justify-between">
-            <div class="flex-grow sm:flex-grow-0 truncate overflow-hidden whitespace-nowrap pr-2">
+            <div class="flex-grow sm:flex-grow-0 truncate overflow-hidden whitespace-nowrap pr-2 font-semibold">
               • {{ candidate.username }} {{ candidate.lastname }}
             </div>
             <div
@@ -180,8 +178,6 @@
     ></app-resume-viewer>
   } -->
   }
-
-
 
 
 
@@ -220,14 +216,12 @@
   @if(showCandidatesExamPassed && candidatesForJob.length >= 1){
     <div class="grid grid-cols-1 sm:grid-cols-2">
       @for(candidateOk of candidatesForJobAndExamPassed; track $index) {
-        <div class="sm:flex-col-2 text-neutral-600 dark:text-neutral-300">
+        <div class="sm:flex-col-2 text-neutral-600 dark:text-neutral-400">
         -  {{ candidateOk.username }} {{ candidateOk.lastname }}
         </div>
       }
     </div>
   }
-
-
 
 
 
@@ -266,9 +260,9 @@
   @if(showCandidatesThumbUp && candidatesWithThumbUp.length >= 1){
     <div class="grid grid-cols-1 sm:grid-cols-2 mt-2">
       @for(candidate of candidatesWithThumbUp; track candidate.candidateUID) {
-        <div class="sm:flex-row text-neutral-600 dark:text-neutral-300 py-2 px-1 border-b last:border-b-0 sm:border-0 border-neutral-200 dark:border-neutral-700">
+        <div class="sm:flex-row text-neutral-600 dark:text-neutral-400 py-2 px-1 border-b last:border-b-0 sm:border-0 border-neutral-200 dark:border-neutral-700">
           <div class="flex items-center justify-between">
-            <div class="flex-grow sm:flex-grow-0 truncate overflow-hidden whitespace-nowrap pr-2">
+            <div class="flex-grow sm:flex-grow-0 truncate overflow-hidden whitespace-nowrap pr-2 font-semibold">
               • {{ candidate.username }} {{ candidate.lastname }}
             </div>
             <div
