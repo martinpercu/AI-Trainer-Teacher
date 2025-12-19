@@ -6,7 +6,7 @@ AI-powered educational platform built with **Angular 19** and **Firebase**. Feat
 
 This repository demonstrates a complete AI-driven learning platform with three core layers:
 
-1. **AI-Powered Learning (RAG System)**: Context-aware chat with PDF-based knowledge, section-specific retrieval, and session persistence
+1. **AI-Powered Learning (RAG System)**: Context-aware chat with PDF-based knowledge, section-specific retrieval, and session persistence ([see implementation →](backend-sample/))
 2. **Knowledge Assessment**: Timed exams with auto-save, resume capability, and intelligent question shuffling to validate learning
 3. **Content Management**: Admin dashboard for managing Teachers (modules), Courses, Exams, and student analytics
 
