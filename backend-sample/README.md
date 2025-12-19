@@ -196,12 +196,12 @@ Conversations survive page reloads, navigation, and server restarts.
 7. Save updated conversation to Redis
 ```
 
-## 📊 Performance Metrics
+## 📊 Performance Characteristics
 
-- **Context noise reduction:** ~70% (via page filtering)
-- **Session retrieval:** <10ms (Redis)
-- **First token latency:** ~500ms (streaming)
-- **Concurrent sessions:** Scales horizontally with Redis
+- **Context noise reduction:** Estimated ~70% via page filtering (compared to full-document search)
+- **Session retrieval:** Redis provides sub-10ms latency for typical chat history sizes
+- **Response delivery:** Token-by-token streaming reduces perceived latency vs. buffered responses
+- **Scalability:** Stateless API design allows horizontal scaling; Redis handles concurrent sessions efficiently
 
 ## 🔑 Environment Variables
 
