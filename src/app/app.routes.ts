@@ -1,22 +1,22 @@
 import { Routes } from '@angular/router';
 
 import { TeacherMainPageComponent } from '@pages/teacher-main-page/teacher-main-page.component'
-import { LoginComponent } from '@components/auth/login/login.component';
+// import { LoginComponent } from '@components/auth/login/login.component';
 import { ChatComponent } from '@components/chat/chat.component';
-import { LeftMenuComponent } from '@components/left-menu/left-menu.component';
+// import { LeftMenuComponent } from '@components/left-menu/left-menu.component';
 // import { EthicSupervisorsComponent } from '@components/pdfs/ethic-supervisors/ethic-supervisors.component';
 import { PdfviewerComponent } from '@components/pdfviewer/pdfviewer.component';
 // This is for Trainer Teacher
 import { MainselectorPageComponent } from '@pages/mainselector-page/mainselector-page.component';
 import { SchoolMainPageComponent } from '@pages/school-main-page/school-main-page.component';
 import { TeachersCRUDComponent } from '@superadmin/teachers-crud/teachers-crud.component';
-import { SchoolsCrudComponent } from '@superadmin/schools-crud/schools-crud.component';
+// import { SchoolsCrudComponent } from '@superadmin/schools-crud/schools-crud.component';
 import { CoursesCRUDComponent } from '@superadmin/course-crud/course-crud.component';
 import { ExamCrudComponent } from '@superadmin/exam-crud/exam-crud.component';
 
 import { ExamComponent } from '@evaluation/exam/exam.component';
 
-import { LangSwitcherComponent } from '@shared/lang-switcher/lang-switcher.component';
+// import { LangSwitcherComponent } from '@shared/lang-switcher/lang-switcher.component';
 
 
 // import { CandidatePageComponent } from '@pages/candidate-page/candidate-page.component';
@@ -35,6 +35,7 @@ import { LangSwitcherComponent } from '@shared/lang-switcher/lang-switcher.compo
 import { authGuard } from './../app/guards/auth.guard';
 // import { LoginAndRegisterComponent } from '@recruiter/login-and-register/login-and-register.component';
 import { publicGuard } from './../app/guards/public.guard';
+import { adminGuard } from './../app/guards/admin.guard';
 
 
 export const routes: Routes = [
@@ -43,6 +44,67 @@ export const routes: Routes = [
     path:'',
     component: MainselectorPageComponent
   },
+  {
+    path:'main',
+    component: SchoolMainPageComponent
+  },
+  {
+    path: 'crud',
+    component: TeachersCRUDComponent,
+    canActivate: [adminGuard]
+  },
+  {
+    path: 'course-crud',
+    component: CoursesCRUDComponent,
+    canActivate: [adminGuard]
+  },
+  {
+    path: 'exam-crud',
+    component: ExamCrudComponent,
+    canActivate: [adminGuard]
+  },
+  // {
+  //   path:'crud',
+  //   component: TeachersCRUDComponent
+  // },
+  // {
+  //   path:'course-crud',
+  //   component: CoursesCRUDComponent
+  // },
+  // {
+  //   path:'exam-crud',
+  //   component: ExamCrudComponent
+  // },
+  {
+    path:'exam/:id',
+    component: ExamComponent
+  },
+  { path: 'teacher/:id',
+    component: TeacherMainPageComponent
+  },
+  { path: 'pdf-viewer',
+    component: PdfviewerComponent
+  },
+  {
+    path:'chat',
+    component: ChatComponent
+  },
+  // {
+  //   path:'school-crud',
+  //   component: SchoolsCrudComponent
+  // },
+  // {
+  //   path:'lang',
+  //   component: LangSwitcherComponent
+  // },
+  // {
+  //   path:'login',
+  //   component: LoginComponent
+  // },
+  // {
+  //   path:'leftmenu',
+  //   component: LeftMenuComponent
+  // },
   // {
   //   path:'resume/:pdfname',
   //   component: PdfShowComponent
@@ -67,30 +129,6 @@ export const routes: Routes = [
   //   path:'job/:jobId',
   //   component: CandidatePageComponent
   // },
-  {
-    path:'lang',
-    component: LangSwitcherComponent
-  },
-  {
-    path:'crud',
-    component: TeachersCRUDComponent
-  },
-  {
-    path:'school-crud',
-    component: SchoolsCrudComponent
-  },
-  {
-    path:'course-crud',
-    component: CoursesCRUDComponent
-  },
-  {
-    path:'exam-crud',
-    component: ExamCrudComponent
-  },
-  {
-    path:'exam/:id',
-    component: ExamComponent
-  },
   // {
   //   path: 'exam/:id',
   //   component: ExamComponent,
@@ -103,10 +141,6 @@ export const routes: Routes = [
   //   path:'',
   //   component: ExamComponent
   // },
-  {
-    path:'main',
-    component: SchoolMainPageComponent
-  },
   // {
   //   path:'main-bridge',
   //   component: MainpageBridgetoworksComponent
@@ -161,54 +195,5 @@ export const routes: Routes = [
   //   path:'job/:jobId',
   //   component: CandidatePageComponent
   // },
-  {
-    path:'lang',
-    component: LangSwitcherComponent
-  },
-  {
-    path:'crud',
-    component: TeachersCRUDComponent
-  },
-  {
-    path:'school-crud',
-    component: SchoolsCrudComponent
-  },
-  {
-    path:'course-crud',
-    component: CoursesCRUDComponent
-  },
-  {
-    path:'exam-crud',
-    component: ExamCrudComponent
-  },
-  {
-    path:'exam/:id',
-    component: ExamComponent
-  },
-  {
-    path:'main',
-    component: SchoolMainPageComponent
-  },
-  { path: 'teacher/:id',
-    component: TeacherMainPageComponent
-  },
-  { path: 'school',
-    component: SchoolMainPageComponent
-  },
-  { path: 'pdf-viewer',
-    component: PdfviewerComponent
-  },
-  {
-    path:'login',
-    component: LoginComponent
-  },
-  {
-    path:'chat',
-    component: ChatComponent
-  },
-  {
-    path:'leftmenu',
-    component: LeftMenuComponent
-  },
   // This is for Trainer Teacher OLD
 ];
