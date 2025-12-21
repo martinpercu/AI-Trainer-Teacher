@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 import { TeacherMainPageComponent } from '@pages/teacher-main-page/teacher-main-page.component'
-import { ChatComponent } from '@components/chat/chat.component';
 import { PdfviewerComponent } from '@components/pdfviewer/pdfviewer.component';
 import { MainselectorPageComponent } from '@pages/mainselector-page/mainselector-page.component';
 import { SchoolMainPageComponent } from '@pages/school-main-page/school-main-page.component';
@@ -48,9 +47,5 @@ export const routes: Routes = [
   {
     path: 'pdf-viewer',
     component: PdfviewerComponent
-  },
-  {
-    path: 'chat',
-    component: ChatComponent
   }
 ];
