@@ -1,4 +1,4 @@
-# Trainer-Teacher
+# AI - Trainer-Teacher
 
 Production-ready online examination platform built with **Angular 19** and **Firebase**. Features real-time exam delivery, auto-save progress tracking, and comprehensive admin dashboard for managing educational content.
 
