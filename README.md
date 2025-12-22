@@ -1,15 +1,14 @@
 # AI - Trainer-Teacher
 
-Production-ready online examination platform built with **Angular 19** and **Firebase**. Features real-time exam delivery, auto-save progress tracking, and comprehensive admin dashboard for managing educational content.
+AI-powered educational platform built with **Angular 19** and **Firebase**. Features intelligent RAG-based learning assistant, adaptive exam system, and comprehensive admin dashboard for content management.
 
 ## 🎯 What's Inside
 
-This repository demonstrates a modern educational assessment system with:
-- **Timed Exams**: Auto-save progress, resume capability, and intelligent question shuffling
-- **AI-Powered Learning**: RAG-based chat system with context-aware responses and session persistence
-- **Multi-Role System**: Admin dashboard for content management, student interface for learning and assessment
-- **Real-time Persistence**: Firestore-backed automatic progress saving
-- **Content Management**: Teachers (modules), Courses, and Exams with full CRUD
+This repository demonstrates a complete AI-driven learning platform with three core layers:
+
+1. **AI-Powered Learning (RAG System)**: Context-aware chat with PDF-based knowledge, section-specific retrieval, and session persistence ([see implementation →](backend-sample/))
+2. **Knowledge Assessment**: Timed exams with auto-save, resume capability, and intelligent question shuffling to validate learning
+3. **Content Management**: Admin dashboard for managing Teachers (modules), Courses, Exams, and student analytics
 
 ## 🧑‍🎓 User Roles
 
@@ -146,7 +145,16 @@ CRITICAL RULES:
 - **Session Storage**: Redis (in-memory, <10ms retrieval)
 - **Message History**: LangChain's `RedisChatMessageHistory` for conversation persistence
 
-*Note: RAG backend implementation available in separate repository. Technical deep-dive available upon request.*
+### 📂 Backend Code Sample
+
+A **standalone, runnable example** of the RAG endpoint is included in this repository:
+
+👉 **[backend-sample/](backend-sample/)** - Complete FastAPI implementation with:
+- Heavily commented code explaining each optimization
+- Quick start guide for local testing
+- All dependencies and environment setup
+
+This sample demonstrates production-ready code that can be deployed immediately.
 
 ---
 
